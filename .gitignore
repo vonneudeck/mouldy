@@ -1,0 +1,3 @@
+*.swp
+location.lua
+nodemcu_update.sh

@@ -46,5 +46,6 @@ if srv then
   srv:listen(80, function(conn)
     conn:on("receive", receiver)
     conn:send(response()) 
+    conn:close()
   end)
 end

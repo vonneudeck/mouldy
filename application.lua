@@ -37,7 +37,6 @@ function response()
   return response
 end
 
-
 bme280.init(sda, scl)
 
 srv = net.createServer(net.TCP, 20) -- 20s timeout

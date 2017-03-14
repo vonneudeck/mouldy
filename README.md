@@ -1,10 +1,10 @@
 # mouldy
 
-Mouldy is a primitive prometheus exporter for metrics from Bosch [BME280 sensors](https://www.bosch-sensortec.com/bst/products/all_products/bme280) for ESP8266 based boards with NodeMCU firmware. 
+Mouldy is a primitive [Prometheus](https://prometheus.io/docs/introduction/overview/) exporter for metrics from Bosch [BME280 sensors](https://www.bosch-sensortec.com/bst/products/all_products/bme280) for [ESP8266](http://espressif.com/products/hardware/esp8266ex/overview/) based boards with [NodeMCU](https://nodemcu.readthedocs.io/en/master/) firmware. 
 
-I had a little mouldy spot in my apartment. After removing it I was told to air more often to avoid the dewpoint. I was curious how often would be enough, but I had no data about humidity/dewpoint in my apartment. Commercially available humidity measuring devices supporting prometheus do not seem to available. Hence I bought a LoLin NodeMCU V3 and a Bosch BME280 sensor and put this together. I paid 20€ for parts, but if you can wait for shipping from China you can reduce that sum to 10€.
+I had a little mouldy spot in my apartment. After removing it I was told to air more often to avoid the dewpoint. I was curious how often would be enough, but I had no data about humidity/dewpoint in my apartment. Commercially available humidity measuring devices supporting Prometheus do not seem to be available and I did not want to fall back behind the comfort of it. Hence I bought a LoLin NodeMCU V3 and a Bosch BME280 sensor and put this together. I paid 20€ for parts, but if you can wait for shipping from China you can reduce that sum to 10€.
 
-It connects to WiFi and whenever one makes a TCP connection to it, it returns temperature, humidity, air pressure and dewpoint in the prometheus text format version 0.0.4.
+It connects to WiFi and whenever one makes a TCP connection to it, it returns temperature, humidity, air pressure, and dewpoint in the Prometheus text format version 0.0.4.
 
 # Build it
 

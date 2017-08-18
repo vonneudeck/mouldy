@@ -15,6 +15,7 @@ end
 print("Connecting to WiFi access point...")
 wifi.setmode(wifi.STATION)
 wifi.sta.config(ssid, wifipassword)
+    print("Connected to wifi:" .. ssid)
 -- wifi.sta.connect() not necessary because config() uses auto-connect=true by default
 tmr.create():alarm(1000, tmr.ALARM_AUTO, function(cb_timer)
     if wifi.sta.getip() == nil then

@@ -1,12 +1,14 @@
 # mouldy
 
-Mouldy is a primitive [Prometheus](https://prometheus.io/docs/introduction/overview/) exporter for metrics from Bosch [BME280 sensors](https://www.bosch-sensortec.com/bst/products/all_products/bme280) for [ESP8266](http://espressif.com/products/hardware/esp8266ex/overview/) based boards with [NodeMCU](https://nodemcu.readthedocs.io/en/master/) firmware. 
+Mouldy is a primitive [Prometheus](https://prometheus.io/docs/introduction/overview/) exporter for metrics from Bosch [BME280](https://www.bosch-sensortec.com/bst/products/all_products/bme280) sensors for [ESP8266](http://espressif.com/products/hardware/esp8266ex/overview/) based boards with [NodeMCU](https://nodemcu.readthedocs.io/en/master/) firmware. 
+
+If you enjoy video introductions, watch the five minute mouldy [lightning talk](https://www.youtube.com/watch?v=Mk9xWqML5mA) from [PromCon2017](https://promcon.io/2017-munich).
 
 I had a little mouldy spot in my apartment. After removing it I was told to air more often to avoid the dewpoint. I was curious how often would be enough, but I had no data about humidity/dewpoint in my apartment. Commercially available humidity measuring devices supporting Prometheus do not seem to be available and I did not want to fall back behind the comfort of it. Hence I bought a LoLin NodeMCU V3 and a Bosch BME280 sensor and put this together. I paid 20€ for parts, but if you can wait for shipping from China you can reduce that sum to 10€.
 
 It connects to WiFi and whenever one makes a TCP connection to it, it returns temperature, humidity, air pressure, and dewpoint in the Prometheus text format version 0.0.4.
 
-# Build it
+## Build it
 
 Connect the sensor’s and the nodeMCU board’s pins:
 
@@ -19,9 +21,9 @@ SDA | D6
 
 You can use other SCL/SDA pins, but D5 and D6 are convenient because you can then solder the sensor to the board without using wires.
 
-# Run it
+## Run it
 
-## Firmware
+### Firmware
 
 To run the exporter you need to have a NodeMCU [firmware](https://nodemcu.readthedocs.io/en/master/en/build/) built with these modules:
 
@@ -33,16 +35,16 @@ To run the exporter you need to have a NodeMCU [firmware](https://nodemcu.readth
 - wifi
 - bme280
 
-For building I used the online [build service](https://nodemcu-build.com/) by Marcel Stör.
+For building I used the online [build service](https://nodemcu-build.com/) by Marcel Stör.  
 For flashing I used [esptool](https://github.com/espressif/esptool).
 
-## Local configuration
+### Local configuration
 
 Change the values of the vars ssid, wifipasswort and altitude (of the device’s position) in location_example.lua and rename it to location.lua  
 
 Then upload all .lua-files to the nodeMCU and reboot it. I used [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader) for that. nodemcu-uploader also allows you to connect to the terminal and a few basic control functions like reboot.
 
-# To do
+## To do
 
 - [] TLS (see nodeMCU module tls)
 - [] export the scrape count

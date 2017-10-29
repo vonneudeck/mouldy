@@ -42,7 +42,7 @@ For flashing I used [esptool](https://github.com/espressif/esptool).
 
 Change the values of the vars ssid, wifipasswort and altitude (of the device’s position) in location_example.lua and rename it to location.lua  
 
-Then upload all .lua-files to the nodeMCU and reboot it. I used [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader) for that. nodemcu-uploader also allows you to connect to the terminal and a few basic control functions like reboot.
+Then upload all .lua-files to the nodeMCU and reboot it. I used [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader) for that. nodemcu-uploader also allows you to connect to the terminal and a few basic control functions like reboot. The nodemcu_update.sh might be handy for that. It is very basic, but safes time.
 
 ## To do
 

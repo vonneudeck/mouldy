@@ -46,7 +46,8 @@ Then upload all .lua-files to the nodeMCU and reboot it. I used [nodemcu-uploade
 
 ## To do
 
-- [] TLS (see nodeMCU module tls)
-- [] export the scrape count
-- [] authorisation
-- [] fix the log racing condition
+- [ ] TLS (see nodeMCU module tls)
+- [ ] export the scrape count
+- [ ] authorisation
+- [ ] fix the log racing condition
+

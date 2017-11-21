@@ -14,7 +14,10 @@ end
 
 print("Connecting to WiFi access point...")
 wifi.setmode(wifi.STATION)
-wifi.sta.config(ssid, wifipassword)
+station_cfg={}
+station_cfg.ssid=ssid
+station_cfg.pwd=wifipassword
+wifi.sta.config(station_cfg)
     print("Connected to wifi:" .. ssid)
 -- wifi.sta.connect() not necessary because config() uses auto-connect=true by default
 tmr.create():alarm(1000, tmr.ALARM_AUTO, function(cb_timer)

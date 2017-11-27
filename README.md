@@ -1,6 +1,6 @@
 # mouldy
 
-Mouldy is a primitive [Prometheus](https://prometheus.io/docs/introduction/overview/) exporter for metrics from Bosch [BME280](https://www.bosch-sensortec.com/bst/products/all_products/bme280) sensors for [ESP8266](http://espressif.com/products/hardware/esp8266ex/overview/) based boards with [NodeMCU](https://nodemcu.readthedocs.io/en/master/) firmware. 
+Mouldy is a simple [Prometheus](https://prometheus.io/docs/introduction/overview/) exporter for metrics from Bosch [BME280](https://www.bosch-sensortec.com/bst/products/all_products/bme280) sensors for [ESP8266](http://espressif.com/products/hardware/esp8266ex/overview/) based boards with [NodeMCU](https://nodemcu.readthedocs.io/en/master/) firmware. 
 
 If you enjoy video introductions, watch the five minute mouldy [lightning talk](https://www.youtube.com/watch?v=Mk9xWqML5mA) from [PromCon2017](https://promcon.io/2017-munich).
 

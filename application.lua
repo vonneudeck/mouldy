@@ -37,7 +37,8 @@ function response()
   return response
 end
 
-bme280.init(sda, scl)
+i2c.setup(0, sda, scl, i2c.SLOW) -- call i2c.setup() only once
+bme280.setup()
 
 srv = net.createServer(net.TCP, 20) -- 20s timeout
 

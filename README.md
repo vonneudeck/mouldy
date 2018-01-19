@@ -34,6 +34,7 @@ To run the exporter you need to have a NodeMCU [firmware](https://nodemcu.readth
 - uart
 - wifi
 - bme280
+- i2c
 
 For building I used the online [build service](https://nodemcu-build.com/) by Marcel Stör.  
 For flashing I used [esptool](https://github.com/espressif/esptool).

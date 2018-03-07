@@ -1,11 +1,6 @@
 local sda = 6
 local scl = 5
 
-function receiver(sck, data)
-  print(data)
-  sck:close()
-end
-
 function makepromlines(prefix, name, source)
   local buffer = {"# TYPE ", prefix, name, " gauge\n", prefix, name, " ", source, "\n"}
   local lines = table.concat(buffer)
@@ -33,19 +28,29 @@ end
 
 function response()
   local header = "HTTP/1.0 200 OK\r\nServer: NodeMCU on ESP8266\r\nContent-Type: text/plain; version=0.0.4\r\n\r\n"
-  local response = header .. metrics()  
+  local response = header .. metrics()
+  print("> " .. response)
   return response
 end
 
 i2c.setup(0, sda, scl, i2c.SLOW) -- call i2c.setup() only once
-bme280.setup()
+
+-- Setup according to recommendation in 3.5.1 of datasheet:
+-- - 1x oversampling
+-- - sleep mode (we enable forced mode when taking measurements)
+-- - IIR filter off
+bme280.setup(1, 1, 1, 0, nil, 0)
 
 srv = net.createServer(net.TCP, 20) -- 20s timeout
 
 if srv then
   srv:listen(80, function(conn)
-    conn:on("receive", receiver)
-    conn:send(response()) 
-    conn:close()
+    conn:on("receive", function(conn, data)
+      print("< "  .. data)
+      bme280.startreadout(0, function ()
+        conn:send(response())
+        conn:close()
+      end)
+    end)
   end)
 end

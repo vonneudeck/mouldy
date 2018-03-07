@@ -39,9 +39,27 @@ To run the exporter you need to have a NodeMCU [firmware](https://nodemcu.readth
 For building I used the online [build service](https://nodemcu-build.com/) by Marcel Stör.  
 For flashing I used [esptool](https://github.com/espressif/esptool).
 
+### Use Docker Image
+You can use the provided Docker image to flash the nodemcu firmware:
+
+Build Docker Image:
+
+```
+docker build -t mouldy .
+```
+
+Flash nodemcu firmware:
+
+```
+docker run --device=/dev/ttyUSB0 mouldy sh -c 'esptool.py write_flash -fm dio \
+  0x00000 bin/nodemcu_float_*.bin'
+```
+
+Uploading code via Docker doesn't work yet. Help welcome!
+
 ### Local configuration
 
-Change the values of the vars ssid, wifipasswort and altitude (of the device’s position) in location_example.lua and rename it to location.lua  
+Change the values of the vars ssid, wifipasswort and altitude (of the device’s position in meters) in location_example.lua and rename it to location.lua
 
 Then upload all .lua-files to the nodeMCU and reboot it. I used [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader) for that. nodemcu-uploader also allows you to connect to the terminal and a few basic control functions like reboot. The nodemcu_update.sh might be handy for that. It is very basic, but safes time.
 
